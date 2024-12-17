@@ -11,3 +11,4 @@ const MoviesList = ({ movies, goToDetails }) => (
 );
 
 export default MoviesList;
+

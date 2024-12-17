@@ -648,6 +648,7 @@ const movies=[
 ]
 
 const App = () => {
+  
   const [currentPage, setCurrentPage] = useState("home");
   const [selectedMovie, setSelectedMovie] = useState(null);
 

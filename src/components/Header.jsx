@@ -1,13 +1,29 @@
 import React, { useState } from "react";
-import "./Header.css"
+import "./Header.css";
 
-const Header = ({ goToHome }) => (
-  <header className="header">
-    <h1 className="header-title" onClick={goToHome} style={{ cursor: "pointer" }}>
-      MovieMania
-    </h1>
-    <p className="header-subtitle">Your hub for the best movies</p>
-  </header>
-);
+const Header = ({ onSearch }) => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-export default Header
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    onSearch(e.target.value); // Передача поискового запроса в родительский компонент
+  };
+
+  return (
+    <header className="header">
+      <div className="header-content">
+        <h1 className="header-logo">MovieMania</h1>
+        <input
+          type="text"
+          className="header-search"
+          placeholder="Search for movies..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <button className="header-register">Register</button>
+      </div>
+    </header>
+  );
+};
+
+export default Header;

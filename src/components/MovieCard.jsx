@@ -6,8 +6,8 @@ const MovieCard = ({ movie, goToDetails }) => (
     <img src={movie.img} alt={movie.title} className="movie-poster" />
     <h2 className="movie-title">{movie.title}</h2>
     <p className="movie-description">{movie.description}</p>
-    <span className="movie-rating">⭐ {movie.rating}</span>
-    <button className="movie-button">Details</button>
+    <span className="movie-rating">{movie.rating}</span>
+    <button className="movie-button">Смотреть</button>
   </div>
 );
 
