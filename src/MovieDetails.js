@@ -5,7 +5,7 @@ import "./MovieDetails.css"
 const MovieDetails = ({ movie, goToHome }) => (
   <div className="movie-details">
     <button onClick={goToHome} className="back-button">
-      Back to Movies
+      Выйти с фильма
     </button>
     <div className="movie-details">
       <div className="movie-details-header">
