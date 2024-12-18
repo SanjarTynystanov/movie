@@ -3,6 +3,7 @@ import MoviesList from "./components/MoviesList";
 import Header from "./components/Header"
 import MovieDetails from "./MovieDetails";
 import Footer from "./components/Footer";
+import Register from "./components/Register";
 
 const movies=[
   {"title":"Трансформеры 7: Восхождение Звероботов (2023)", "category":"фильм",
@@ -11,7 +12,7 @@ const movies=[
     "country":"США", "img":"https://onlinevkino.com/uploads/posts/2023-06/1686350720_transformery-voshozhdenie-zverobotov.webp",
     "genre":"Боевики,Приключения,Фантастика","director":"Стивен Кейпл мл.", "actors":"Мишель Йео, Питер Динклэйдж, Пит Дэвидсон, Рон Перлман, Энтони Рамос, Луна Лорен Велес, Джон Ди Маджио, ЭмДжей Родригес, Питер Каллен",
    "text":"После победы над Мегатроном, Оптимус и его команда остаются на Земле, чтобы помогать миру оставаться в безопасности. Когда казалось, что ничего не будет происходить, Оптимус получает сигнал о появлении необычного робота, что имеет отношение к животным. Когда же удаётся поговорить с «пришельцем» лидер автоботов узнаёт плохие новости: снова надвигается Тьма, и на этот раз Зло стремится полностью уничтожить планету. Единственный способ победить это – собрать целую команду звероботов. Для этого Оптимусу, а также остальным автоботам предстоит вновь применить свои навыки, и сразиться с различными противниками. И всё же на этот раз победа не будет простой задачей, так как противник могущественнее чем десептиконы. Оптимусу предстоит как лидеру принимать различные решения, а также защитить человечество от страшной опасности. У него есть верные товарищи, а также люди, что всегда верили в хороших роботов. Грядёт битва, которая может завершиться различными сценариями, но Оптимус никогда не отступал. Более того он верил в человечество, а это является стимулом оставаться на планете и защищать её от инопланетных созданий, что ставят себе цель полного уничтожении Земли.",
-   "data_src":"https://dlcache4.vibio.tv/cd781d8edd692bda823420a64e2929ac/2957/2957803/output.mq.mp4"
+   "data_src":"https://polygamist-as.allarknow.online/a4037aba-89ef-4337-a7cd-57d24759feae"
   },
   {"title":"До встречи на Венере (2023)", "category":"фильм",
     "quality":"HD 720, 1080", "duble":"Дубляж","data":"2023","time":"94 мин.",
@@ -658,9 +659,16 @@ const App = () => {
     setCurrentPage("details");
   };
 
+  const renderPage = () => {
+    if (currentPage === "register") {
+      return <Register />;
+    } return <h2>Добро пожаловать на главную страницу!</h2>;
+  };
+
   return (
     <div className="app">
-      <Header goToHome={goToHome} />
+      <Header goToHome={goToHome} setCurrentPage={setCurrentPage} />
+      {renderPage()}
       {currentPage === "home" && <MoviesList movies={movies} goToDetails={goToDetails} />}
       {currentPage === "details" && selectedMovie && (
         <MovieDetails movie={selectedMovie} goToHome={goToHome} />
